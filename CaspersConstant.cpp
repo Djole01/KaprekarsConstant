@@ -11,28 +11,38 @@ using namespace std;
 
 void operation3(int a);
 void operation4(int a);
-long sortNumASC(long n);
-long number1;
-signed long long int testNumber;
+int sortNumASC(int n);
+int number1;
+
 
 int main() {
 	enterNumber:
 	cout << "Enter 3 or 4 digit number, with at least 2 different values (including 0):" << endl;
-	 cin >> testNumber;
-	 cout << "Your number is: " << testNumber << endl;
-	cout << endl;
+
+
+	cin >> number1;
+	// to keep asking for the number until it's an accepted int type.
+	while(cin.fail()) {
+		cout << "Error, number is out of range, or wrong data type, Try again\n" << endl;
+		cout << "Enter 3 or 4 digit number, with at least 2 different values (including 0):" << endl;
+		cin.clear();
+		cin.ignore(256,'\n');
+		cin >> number1;
+	}
+
+
+	cout << "Your number is: " << number1 << "\n" << endl;
+
 	// length of number, by the number of digits
-	int length = std::to_string(testNumber).length();
+	 int length = to_string(number1).length();
 
 	// range error handling
 	try {
 		if ( length > 4 || length < 3 ){
 			throw 99;
 		}
-		else{
-			number1 = testNumber;
-		}
-	} catch( int length) {
+
+	} catch(int length) {
 		cout << "Error, number is out of range, please enter a 3 or 4 digit number only ! error number: " << length << endl;
 		cout << "Try again." <<  endl;
 		cout << endl;
@@ -65,12 +75,12 @@ void operation3(int a){
 
 	cout << "3 digit function works" << endl;
 	// array size 20, array[0] = a;
-	long casperNumbers [20] = {a};
+	 int casperNumbers [20] = {a};
 	 for (int i = 0; i<20;i++ ){
-		 long n = long(casperNumbers[i]);
-		 std::cout << "Unsorted: " << n << std::endl;
+		  int n = casperNumbers[i];
+		 cout << "Unsorted: " << n << endl;
 		 n = sortNumASC(n);
-		 std::cout << "Sorted:   " << n << std::endl;
+		 cout << "Sorted:   " << n << endl;
 
 	 }
 	// sort array[i] from highest to lowest = tempL
@@ -98,12 +108,12 @@ void operation4(int a){
 }
 
 // Bubblesort Ascending
-long sortNumASC(long n) {
+ int sortNumASC(int n) {
   while (true) {
-    long a = n % 10, p = 9;
+    int a = n % 10, p = 9;
     bool s = false;
-    for (long r = n / 10; r; r/= 10) {
-      long b = r % 10;
+    for (int r = n / 10; r; r/= 10) {
+      int b = r % 10;
       if (a < b) {
         n -= p * (b - a);
         s = true;
