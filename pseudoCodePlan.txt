@@ -1,0 +1,44 @@
+
+   pseudo code plan I had of this program, written on my phone.
+
+		Main ( )
+		{
+		Cout Enter 3 or 4 digit number, with at least 2 different values (including 0)
+
+		number1 = cin:
+		Int length = number1 length
+
+		If ( length > 4 || length < 3 )
+		{ error, go to cin again}
+		Else if ( not at least 2 unique numbers)
+		{ error, go to cin again}
+
+		If (length == 3)
+		 { math operation until constant is reached,
+		Printf / cout every line of calculation}
+		If (length == 4)
+		 { math operation until constant is reached
+		Printf / cout every line of calculation}
+
+		}
+
+		Math operation function 4 digit (number1)
+		{
+
+		 Sort
+		Subtract
+		Compare to previous , if same,  stop, if not
+		Goto sort again.
+
+		}
+
+		Math operation function 3 digit (number1)
+
+		{
+
+		 Sort
+		Subtract
+		Compare to previous , if same,  stop, if not
+		Goto sort again
+
+		}
