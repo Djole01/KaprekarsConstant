@@ -12,10 +12,10 @@ using namespace std;
 void operation3(int a);
 void operation4(int a);
 int sortNumASC(int n);
-int number1;
 
 
 int main() {
+	int number1;
 	enterNumber:
 	cout << "Enter 3 or 4 digit number, with at least 2 different values (including 0):" << endl;
 
