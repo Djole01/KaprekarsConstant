@@ -20,8 +20,7 @@ void printUnique(int l)
         // Find digits and maintain its hash
         while (num)
         {
-            // if a digit occurs more than 1 time
-            // then break
+
             if (visited[num % 10]){
             	// TO DO , FIX THIS FOR 4 DIGIT NUMBERS,
             	// COMPARE THE SETS OF UNIQUE DIGITS.
@@ -29,6 +28,8 @@ void printUnique(int l)
             }
 
             if(visitedCounter == 2){
+            	  // if a digit occurs more than 2 times
+            	  // then break
                 break;
             }
 
