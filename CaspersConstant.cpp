@@ -15,6 +15,7 @@ int sortNumASC(int n);
 
 
 int main() {
+
 	int number1;
 	enterNumber:
 	cout << "Enter 3 or 4 digit number, with at least 2 different values (including 0):" << endl;
@@ -46,7 +47,8 @@ int main() {
 		goto enterNumber;
 	}
 
-	// working unique digit test, for 3 digit numbers.
+	// unique digit test, for 3 digit numbers.
+
 	if (length == 3) {
 		int num = number1;
 		bool visited[10] = {false};
@@ -55,13 +57,17 @@ int main() {
 		while (num)
 		{
 			if (visited[num % 10]){
-				// TO DO , FIX THIS FOR 4 DIGIT NUMBERS,
-				// COMPARE THE SETS OF UNIQUE DIGITS.
+
 				visitedCounter++;
 			}
 			if(visitedCounter == 2){
+
 				  // if a digit occurs more than 2 times
 				  // then output error
+				  // this does not work for 4 digit numbers, because a value of 1122
+				  // would also be declined, visitedCounter will go up, even if a different set of
+				  // digits goes up.
+
 				  cout << "Error, the input number must have at least 2 unique digits\nTry again: "<< endl;
 				  goto enterNumber;
 			}
@@ -69,13 +75,45 @@ int main() {
 			num = num/10;
 		}
 		// num will be 0 only when above loop
-		// doesn't get break that means the
-		// num is unique so print it.
+		// doesn't get the error, that means the
+		// num is unique, so the program continues on.
 	}
 
+	// unique digit test, for 4 digit numbers.
 
-	// TO DO
-	// CHECK IF IT HAS AT LEAST 2 UNIQUE VALUES, FOR 4 DIGIT NUMBERS
+	int d = number1 % 10;
+		int temp = number1 / 10;
+		// temp = 123
+		int c = temp % 10;
+		temp = number1 / 100;
+		int b = temp % 10;
+		temp = number1 / 1000;
+		int a = temp % 10;
+
+		// make array, filled with digits of the number
+		int numberArray[4] = {a , b, c, d};
+
+		// check that each digit dooesn't repeat 3 times in the array.
+
+		int seen[4];
+			for(int i = 0; i < 4; i++)
+				seen[i] = 0;
+
+			for(int i = 0; i < 4; i++) {
+				if(seen[i] == 0) {
+					int count = 0;
+					for(int j = i; j < 4; j++)
+						if(numberArray[j] == numberArray[i]) {
+							count += 1;
+							seen[j] = 1;
+							if (count > 2){
+								cout << "Error, must contain at least 2 unique digits. " << endl;
+								cout << "Try again.\n"<< endl;
+								goto enterNumber;
+							}
+						}
+					}
+			}
 
 
 
@@ -86,10 +124,6 @@ int main() {
 	else if(length == 4) {
 		operation4(number1);
 	}
-
-	cout << "abc" << endl;
-	cout << "def" << endl;
-
 	return 0;
 }
 
@@ -99,7 +133,7 @@ void operation3(int a){
 	cout << "3 digit function works" << endl;
 	// array size 20, array[0] = a;
 	 int casperNumbers [20] = {a};
-	 for (int i = 0; i<20;i++ ){
+	 for (int i = 0; i<1;i++ ){ // change upper range in the for loop to 10
 			  int n = casperNumbers[i];
 			  cout << "Unsorted: " << n << endl;
 			  n = sortNumASC(n);
@@ -119,15 +153,15 @@ void operation3(int a){
 void operation4(int a){
 
 	cout << "4 digit function works" << endl;
+
 	// array size 20, array[0] = a;
-	// for (int i = 0; i<20;i++ ){
-	// sort array[i] from highest to lowest = tempL
-	// sort array[i] from lowest to highest tempH
-	// deduction : tempH - tempL = array[i+1]
-	// cout temph - templ = array[i+1]
-	// i++;
-	// }
-	//
+	 int casperNumbers [20] = {a};
+	 for (int i = 0; i<1;i++ ){    // change upper range in the for loop to 10
+			  int n = casperNumbers[i];
+			  cout << "Unsorted: " << n << endl;
+			  n = sortNumASC(n);
+			  cout << "Sorted:   " << n << endl;
+	 }
 }
 
 // Bubblesort Ascending
