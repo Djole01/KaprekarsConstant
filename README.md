@@ -1,7 +1,7 @@
-# Casper's Constant
+#Kaprekar's Constant
 Work in progress!
 
-A c++ representation of the mathematical phenomena called "Casper's Constant". <br/>
+A c++ representation of the mathematical phenomena called "Kaprekar's Constant". <br/>
 
 The mathematics goes as follows:<br/>
     1 - Take a 3 or 4 digit number, with at least 2 unique digits (including 0).<br/>
