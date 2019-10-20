@@ -1,4 +1,4 @@
-#Kaprekar's Constant
+# Kaprekar's Constant
 Work in progress!
 
 A c++ representation of the mathematical phenomena called "Kaprekar's Constant". <br/>
