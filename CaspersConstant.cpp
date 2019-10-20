@@ -32,36 +32,59 @@ int main() {
 
 
 	cout << "Your number is: " << number1 << "\n" << endl;
-
 	// length of number, by the number of digits
 	 int length = to_string(number1).length();
-
 	// range error handling
 	try {
 		if ( length > 4 || length < 3 ){
 			throw 99;
 		}
-
 	} catch(int length) {
 		cout << "Error, number is out of range, please enter a 3 or 4 digit number only ! error number: " << length << endl;
 		cout << "Try again." <<  endl;
 		cout << endl;
 		goto enterNumber;
 	}
+
+	// working unique digit test, for 3 digit numbers.
+	if (length == 3) {
+		int num = number1;
+		bool visited[10] = {false};
+		int visitedCounter = 0;
+		// Find digits and maintain its hash
+		while (num)
+		{
+			if (visited[num % 10]){
+				// TO DO , FIX THIS FOR 4 DIGIT NUMBERS,
+				// COMPARE THE SETS OF UNIQUE DIGITS.
+				visitedCounter++;
+			}
+			if(visitedCounter == 2){
+				  // if a digit occurs more than 2 times
+				  // then output error
+				  cout << "Error, the input number must have at least 2 unique digits\nTry again: "<< endl;
+				  goto enterNumber;
+			}
+			visited[num%10] = true;
+			num = num/10;
+		}
+		// num will be 0 only when above loop
+		// doesn't get break that means the
+		// num is unique so print it.
+	}
+
+
 	// TO DO
-	// CHECK IF IT HAS AT LEAST 2 UNIQUE VALUES
-	// FIX LOOPING WHEN NUMBER OF DIGITS EXCEEDS INT SIZE , IMPLEMENT ERROR
+	// CHECK IF IT HAS AT LEAST 2 UNIQUE VALUES, FOR 4 DIGIT NUMBERS
+
+
 
 	if(length == 3) {
-
 		operation3(number1);
-
 	}
 
 	else if(length == 4) {
-
 		operation4(number1);
-
 	}
 
 	cout << "abc" << endl;
@@ -77,10 +100,10 @@ void operation3(int a){
 	// array size 20, array[0] = a;
 	 int casperNumbers [20] = {a};
 	 for (int i = 0; i<20;i++ ){
-		  int n = casperNumbers[i];
-		 cout << "Unsorted: " << n << endl;
-		 n = sortNumASC(n);
-		 cout << "Sorted:   " << n << endl;
+			  int n = casperNumbers[i];
+			  cout << "Unsorted: " << n << endl;
+			  n = sortNumASC(n);
+			  cout << "Sorted:   " << n << endl;
 
 	 }
 	// sort array[i] from highest to lowest = tempL
