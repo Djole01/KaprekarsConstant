@@ -42,7 +42,7 @@ int main() {
 		}
 	} catch(int length) {
 		cout << "Error, number is out of range, please enter a 3 or 4 digit number only ! error number: " << length << endl;
-		cout << "Try again." <<  endl;
+		cout << "Try again.\n" <<  endl;
 		cout << endl;
 		goto enterNumber;
 	}
@@ -68,7 +68,7 @@ int main() {
 				  // would also be declined, visitedCounter will go up, even if a different set of
 				  // digits goes up.
 
-				  cout << "Error, the input number must have at least 2 unique digits\nTry again: "<< endl;
+				  cout << "Error, the input number must have at least 2 unique digits.\nTry again:\n "<< endl;
 				  goto enterNumber;
 			}
 			visited[num%10] = true;
