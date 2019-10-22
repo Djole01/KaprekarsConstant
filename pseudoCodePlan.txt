@@ -1,5 +1,5 @@
 
-   pseudo code plan I had of this program, written on my phone.
+   Pseudo code plan I had of this program, written on my phone.
 
 		Main ( )
 		{
