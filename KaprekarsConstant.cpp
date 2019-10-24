@@ -1,8 +1,8 @@
 //============================================================================
-// Name        : CaspersConstant.cpp
+// Name        : KaprekarsConstant.cpp
 // Author      : Djordje
 // Version     : 1
-// Description : My attempt at illustrating Caspers mathematical constant using c++.
+// Description : My attempt at illustrating Kaprekar mathematical constant using c++.
 // 				 My aim is to use good coding practices.
 
 //============================================================================
@@ -17,38 +17,46 @@ int sortNumASC(int n);
 int inputNumber(void);
 
 // struct to return multiple values
-// error for error handiling
+// error for error handling
 // length for range checking and selecting correct operation based on it.
-struct Foo {
+struct Check {
      bool error;
      int length;
 } result;
-Foo displayAndCheck(int b);
+Check displayAndCheck(int b);
 
 int main() {
 
 	int number1;
-	enterNumber:
-	number1 = inputNumber();
-	result = displayAndCheck(number1);
-	if (result.error){
-		goto enterNumber;
-	}
-	int length = result.length;
-	// unique digit test, for 3 digit numbers.
-	if ((uniqueDigitTest3Digits(length, number1)) == 1){
-		goto enterNumber;
-	}
-	// unique digit test, for 4 digit numbers.
-	if ((uniqueDigitTest4Digits(length, number1)) == 1){
-			goto enterNumber;
+	int errorTryAgain = 0;
+	// While loop, until input is accepted. The loop is sensitive to errorTryAgain variable.
+	// 0 is initial state, ask user for input,
+	// 1 means an error occurred in any of the error checks, ask input number again.
+	// 2 means no errors occurred and program will continue.
+	while (errorTryAgain == 0 || errorTryAgain == 1){
+		number1 = inputNumber();
+		result = displayAndCheck(number1);
+		int length = result.length;
+		if (result.error){
+			errorTryAgain = 1;
 		}
-
-	if(length == 3) {
-		operation3(number1);
-	}
-	else if(length == 4) {
-		operation4(number1);
+		// unique digit test, for 3 digit numbers.
+		else if ((uniqueDigitTest3Digits(length, number1)) == 1){
+			errorTryAgain = 1;
+		}
+		// unique digit test, for 4 digit numbers.
+		else if ((uniqueDigitTest4Digits(length, number1)) == 1){
+			errorTryAgain = 1;
+		}
+		else {
+			errorTryAgain = 2;
+			if(length == 3) {
+					operation3(number1);
+				}
+			else if(length == 4) {
+					operation4(number1);
+				}
+		}
 	}
 	return 0;
 }
@@ -68,7 +76,7 @@ int inputNumber(void){
 return inputNumber1;
 }
 
-Foo displayAndCheck(int b){
+Check displayAndCheck(int b){
 	bool error = false;
 	cout << "Your number is: " << b << "\n" << endl;
 	// length of number, by the number of digits
@@ -85,7 +93,7 @@ Foo displayAndCheck(int b){
 		cout << endl;
 		error = true;
 		}
-	 Foo result = { error, length };
+	 Check result = { error, length };
 	 return result;
 	 // returning variables will be in result.error and result.length
 }
@@ -211,11 +219,3 @@ void operation4(int a){
     if (!s) return n;
   }
 }
-
-
-
-
-
-
-
-
