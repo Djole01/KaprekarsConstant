@@ -25,7 +25,7 @@ struct Check {
 } result;
 Check displayAndCheck(int b);
 
-int main() {
+int main(void) {
 
 	int number1;
 	int errorTryAgain = 0;
