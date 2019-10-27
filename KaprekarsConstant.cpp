@@ -1,65 +1,6 @@
-//============================================================================
-// Name        : KaprekarsConstant.cpp
-// Author      : Djordje
-// Version     : 1
-// Description : My attempt at illustrating Kaprekar mathematical constant using c++.
-// 				 My aim is to use good coding practices.
-
-//============================================================================
 #include <iostream>
+#include "KaprekarsConstant.h"
 using namespace std;
-
-int uniqueDigitTest3Digits(int l, int a);
-int uniqueDigitTest4Digits(int l, int p);
-void operation3(int a);
-void operation4(int a);
-int sortNumASC(int n);
-int inputNumber(void);
-
-// struct to return multiple values
-// error for error handling
-// length for range checking and selecting correct operation based on it.
-struct Check {
-     bool error;
-     int length;
-} result;
-Check displayAndCheck(int b);
-
-int main(void) {
-
-	int number1;
-	int errorTryAgain = 0;
-	// While loop, until input is accepted. The loop is sensitive to errorTryAgain variable.
-	// 0 is initial state, ask user for input,
-	// 1 means an error occurred in any of the error checks, ask input number again.
-	// 2 means no errors occurred and program will continue.
-	while (errorTryAgain == 0 || errorTryAgain == 1){
-		number1 = inputNumber();
-		result = displayAndCheck(number1);
-		int length = result.length;
-		if (result.error){
-			errorTryAgain = 1;
-		}
-		// unique digit test, for 3 digit numbers.
-		else if ((uniqueDigitTest3Digits(length, number1)) == 1){
-			errorTryAgain = 1;
-		}
-		// unique digit test, for 4 digit numbers.
-		else if ((uniqueDigitTest4Digits(length, number1)) == 1){
-			errorTryAgain = 1;
-		}
-		else {
-			errorTryAgain = 2;
-			if(length == 3) {
-					operation3(number1);
-				}
-			else if(length == 4) {
-					operation4(number1);
-				}
-		}
-	}
-	return 0;
-}
 
 int inputNumber(void){
 	int inputNumber1;
