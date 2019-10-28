@@ -15,8 +15,9 @@ It has to be an integer, with the following requirements: 3 or 4 digits long, an
 These are the requirements to get the constant of the mathematical phenoma.<br/>
 
 # Instructions
-	1. Clone / Download and get KaprekarConstant file from binary folder. 
-	2. On Linux , type ./KaprekarConstant  in a terminal in the file directory.
+	1. Clone / Download and get the binary folder.
+	2. On Linux , type ./KaprekarConstant  in a terminal in the bin/linux file directory.
+	   On Windows, run the .exe file from the bin/windows folder.
 	3. Enjoy.
 
 # Progress update - 25.10.2019 1 AM <br/>
