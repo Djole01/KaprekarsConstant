@@ -1,5 +1,4 @@
 # Kaprekar's Constant
-Work in progress!
 
 A command line c++ representation of the mathematical phenomena called "Kaprekar's Constant". <br/>
 
@@ -14,6 +13,11 @@ The mathematics goes as follows:<br/>
 My program asks the input from the user. <br/>
 It has to be an integer, with the following requirements: 3 or 4 digits long, and has to have 2 unqiue digits.<br/>
 These are the requirements to get the constant of the mathematical phenoma.<br/>
+
+# Instructions
+	1. Clone / Download and get KaprekarConstant file from binary folder. 
+	2. On Linux , type ./KaprekarConstant  in a terminal in the file directory.
+	3. Enjoy.
 
 # Progress update - 25.10.2019 1 AM <br/>
 
