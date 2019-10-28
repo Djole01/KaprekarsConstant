@@ -16,7 +16,7 @@
 using namespace std;
 
 int main(void) {
-
+while(1){
 	int number1;
 	int errorTryAgain = 0;
 	// While loop, until input is accepted. The loop is sensitive to errorTryAgain variable.
@@ -40,13 +40,9 @@ int main(void) {
 		}
 		else {
 			errorTryAgain = 2;
-			if(length == 3) {
-					operation3(number1);
-				}
-			else if(length == 4) {
-					operation4(number1);
-				}
+			operation(number1, length);
 		}
 	}
+}
 	return 0;
 }

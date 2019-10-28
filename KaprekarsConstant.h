@@ -8,12 +8,10 @@
 #ifndef KAPREKARSCONSTANT_H_
 #define KAPREKARSCONSTANT_H_
 
-
+int sortNum(int t, int l, int k);
 int uniqueDigitTest3Digits(int l, int a);
 int uniqueDigitTest4Digits(int l, int p);
-void operation3(int a);
-void operation4(int a);
-int sortNumASC(int n);
+void operation(int a, int l);
 int inputNumber(void);
 
 struct Check {

@@ -1,5 +1,7 @@
 #include <iostream>
 #include "KaprekarsConstant.h"
+#include <sstream>
+
 using namespace std;
 
 int inputNumber(void){
@@ -112,51 +114,88 @@ int uniqueDigitTest4Digits(int l, int p){
 	return 0;
 }
 
-void operation3(int a){
+void operation(int a, int l){
 	cout << "3 digit function works" << endl;
 	// array size 20, array[0] = a;
 	 int casperNumbers [20] = {a};
-	 for (int i = 0; i<1;i++ ){ // change upper range in the for loop to 10
-			  int n = casperNumbers[i];
-			  cout << "Unsorted: " << n << endl;
-			  n = sortNumASC(n);
-			  cout << "Sorted:   " << n << endl;
-
+	 int asc = 1; // for declaring whether sorting ascends or descends
+	 int dsc = 2; // for declaring whether sorting ascends or descends
+	 for (int i = 0; i<10;i++ ){ // change upper range in the for loop to 10
+			  int unsorted = casperNumbers[i];
+			  int sortedA = sortNum(unsorted, l, asc);
+			  int sortedD = sortNum(unsorted, l, dsc);
+			  casperNumbers[i+1] = sortedD - sortedA;
+			  cout << sortedD << " - " << sortedA << " = " << casperNumbers[i+1] << endl;
+			  if (casperNumbers[i] == casperNumbers[i+1]){
+				  break;
+			  }
 	 }
-	// sort array[i] from highest to lowest = tempL
-	// sort array[i] from lowest to highest tempH
-	// deduction : tempH - tempL = array[i+1]
-	// cout temph - templ = array[i+1]
-	// i++;
-	// }
-	//
+	 cout << "Reached Kaprekar's constant.\n Goodbye! " << endl;
 }
 
-void operation4(int a){
-	cout << "4 digit function works" << endl;
-	// array size 20, array[0] = a;
-	 int casperNumbers [20] = {a};
-	 for (int i = 0; i<1;i++ ){    // change upper range in the for loop to 10
-			  int n = casperNumbers[i];
-			  cout << "Unsorted: " << n << endl;
-			  n = sortNumASC(n);
-			  cout << "Sorted:   " << n << endl;
-	 }
-}
+ // Bubblesort for 3 or 4 digit values, both ascending and descending, depending on the inputs
+int sortNum(int t, int l, int k) {
+	int a, b, c, d, temp;
+    // following lines of code are to extract the digits out of the integer.
+    d = t % 10;
+    temp = t / 10;
+    c = temp % 10;
+    temp = t / 100;
+    b = temp % 10;
+    temp = t / 1000;
+    a = temp % 10;
 
-// Bubblesort Ascending
- int sortNumASC(int n) {
-  while (true) {
-    int a = n % 10, p = 9;
-    bool s = false;
-    for (int r = n / 10; r; r/= 10) {
-      int b = r % 10;
-      if (a < b) {
-        n -= p * (b - a);
-        s = true;
-      } else a = b;
-      p *= 10;
-    }
-    if (!s) return n;
+    int descendingArray[l];
+
+	if (l == 4){
+		descendingArray[0] = a;
+		descendingArray[1] = b;
+		descendingArray[2] = c;
+		descendingArray[3] = d;
+	  }
+	else {
+		descendingArray[0] = b;
+		descendingArray[1] = c;
+		descendingArray[2] = d;
+	}
+ 	stringstream ss;
+
+ 	// make array, filled with digits of the number
+
+ 	int i, j, flag = 1;    // set flag to 1 to start first pass
+ 	int temp2;             // holding variable
+ 	int numLength = l;
+
+ 	for(i = 1; (i <= numLength) && flag; i++)
+ 	     {
+ 	     	  flag = 0;
+ 	          for (j=0; j < (numLength -1); j++)
+ 	         {
+ 	        	  if (k == 2){
+					   if (descendingArray[j+1] > descendingArray[j])      // ascending order simply changes to <
+					  {
+							temp2 = descendingArray[j];             // swap elements
+							descendingArray[j] = descendingArray[j+1];
+							descendingArray[j+1] = temp2;
+							flag = 1;               // indicates that a swap occurred.
+					   }
+ 	        	  }
+ 	        	 if (k == 1){
+					   if (descendingArray[j+1] < descendingArray[j])      // Now it's ascending
+					  {
+							temp2 = descendingArray[j];             // swap elements
+							descendingArray[j] = descendingArray[j+1];
+							descendingArray[j+1] = temp2;
+							flag = 1;               // indicates that a swap occurred.
+					   }
+				  }
+
+ 	          }
+ 	     }
+ 	for (unsigned q = 0; q < sizeof descendingArray / sizeof descendingArray [0]; ++q){
+ 	        ss << descendingArray [q];
+ 	}
+ 	int result;
+ 	ss >> result;
+ 	return result;
   }
-}
