@@ -115,7 +115,6 @@ int uniqueDigitTest4Digits(int l, int p){
 }
 
 void operation(int a, int l){
-	cout << "3 digit function works" << endl;
 	// array size 20, array[0] = a;
 	 int casperNumbers [20] = {a};
 	 int asc = 1; // for declaring whether sorting ascends or descends
