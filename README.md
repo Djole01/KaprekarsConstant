@@ -27,14 +27,16 @@ implemented one "function" at a time in this project, but I haven't made them ve
 function, and also made use of goto statements. 
 
 My program has always worked exactly like I want it to, and is rigorously tested after every addition of functionality. 
-I was still curious wether I was going about the structure of the code correctly, so I researched wether my ways were good.
+I was still curious whether I was going about the structure of the code correctly, so I researched whether my ways were good.
 I have found out that the goto statement is quite old and can cause spaghetti code, which is why I changed it's use with a while
 loop. I have also split my main function code into smaller functions, making it way easier to track of what's going on.
 
 I am very satisfied with this project so far, even though I haven't yet completed it (the sorting and calculating part left).
 It's given me a solid knowledge of the architechure of a c++ application, and I now make less spaghetti code. 
 
+# Progress update - 28.10.2019 1 PM <br/>
 
-    
+I have completed what I set out to do. I have a working demonstration of Kaprekar's constant made in C++. I also have a great 
+experience behind me after this fun personal project. I am sattisfied with how it went, I kept the code tidy.
 
 
