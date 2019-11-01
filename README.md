@@ -16,7 +16,8 @@ These are the requirements to get the constant of the mathematical phenoma.<br/>
 
 # Instructions
 	1. Clone / Download and get the binary folder.
-	2. On Linux , type ./KaprekarConstant  in a terminal in the bin/linux file directory.
+	2. On Linux , type chmod +x KaprekarConstant in a terminal in the files directory. This will make it executable.
+	   Then type, ./KaprekarConstant
 	   On Windows, run the .exe file from the bin/windows folder.
 	3. Enjoy.
 
